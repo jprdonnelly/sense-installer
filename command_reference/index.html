@@ -1,0 +1,662 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>CLI reference - Qlik Sense on Kubernetes CLI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#cli-reference" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Qlik Sense on Kubernetes CLI" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Qlik Sense on Kubernetes CLI
+            </span>
+            <span class="md-header-nav__topic">
+              
+                CLI reference
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/qlik-oss/sense-installer/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Qlik Sense on Kubernetes CLI" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Qlik Sense on Kubernetes CLI
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/qlik-oss/sense-installer/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../getting_started/" title="Getting started" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CLI reference
+      </label>
+    
+    <a href="./" title="CLI reference" class="md-nav__link md-nav__link--active">
+      CLI reference
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-preflight" class="md-nav__link">
+    qliksense preflight
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-all-checks" class="md-nav__link">
+    Running all checks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-specific-check" class="md-nav__link">
+    Running specific check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-load" class="md-nav__link">
+    qliksense load
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-apply" class="md-nav__link">
+    qliksense apply
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-about" class="md-nav__link">
+    qliksense about
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-config" class="md-nav__link">
+    qliksense config
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../concepts/" title="How CLI works" class="md-nav__link">
+      How CLI works
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../air_gap/" title="Air gap" class="md-nav__link">
+      Air gap
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/qlik-oss/sense-installer/releases" title="Releases ⧉" class="md-nav__link">
+      Releases ⧉
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-preflight" class="md-nav__link">
+    qliksense preflight
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-all-checks" class="md-nav__link">
+    Running all checks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-specific-check" class="md-nav__link">
+    Running specific check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-load" class="md-nav__link">
+    qliksense load
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-apply" class="md-nav__link">
+    qliksense apply
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-about" class="md-nav__link">
+    qliksense about
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qliksense-config" class="md-nav__link">
+    qliksense config
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/qlik-oss/sense-installer/edit/master/docs/command_reference.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="cli-reference">CLI reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h1>
+<h3 id="qliksense-preflight">qliksense preflight<a class="headerlink" href="#qliksense-preflight" title="Permanent link">&para;</a></h3>
+<p>Preflight checks provide pre-installation cluster conformance testing and validation before we install qliksense on the cluster. We gather a suite of conformance tests that can be easily written and run on the target cluster to verify that cluster-specific requirements are met.</p>
+<p>We support the following tests at the moment as part of preflight checks, and the range of the suite will be expanded in future.</p>
+<p>Run the following command to view help about the commands supported by preflight at any moment:
+<div class="codehilite"><pre><span></span><span class="err">qliksense preflight</span>
+</pre></div></p>
+<h4 id="running-all-checks">Running all checks<a class="headerlink" href="#running-all-checks" title="Permanent link">&para;</a></h4>
+<p>Run the following command to execute all preflight checks
+<div class="codehilite"><pre><span></span><span class="err">qliksense preflight all --mongodb-url=&lt;mongo-server url&gt; --mongodb-ca-cert=&lt;path to ca-cert file&gt;</span>
+</pre></div></p>
+<h4 id="running-specific-check">Running specific check<a class="headerlink" href="#running-specific-check" title="Permanent link">&para;</a></h4>
+<p>Run the following command to execute a specific check
+<div class="codehilite"><pre><span></span><span class="err">qliksense preflight dns</span>
+</pre></div></p>
+<h3 id="qliksense-load">qliksense load<a class="headerlink" href="#qliksense-load" title="Permanent link">&para;</a></h3>
+<p><code class="codehilite"><span class="err">qliksense load</span></code> command takes input from a file or from pipe</p>
+<ul>
+<li><code class="codehilite"><span class="err">qliksense load -f cr-file.yaml</span></code></li>
+<li><code class="codehilite"><span class="err">cat cr-file.yaml | qliksense load -f -</span></code></li>
+</ul>
+<p>This will load the Custom Resource (CR) into <code class="codehilite"><span class="cp">${</span><span class="n">QLIKSENSE_HOME</span><span class="cp">}</span></code> folder, create context structure and set the current context to that CR.</p>
+<p>This will also encrypt the secrets from CR while writing the CR into the disk.</p>
+<h3 id="qliksense-apply">qliksense apply<a class="headerlink" href="#qliksense-apply" title="Permanent link">&para;</a></h3>
+<p><code class="codehilite"><span class="err">qliksense apply</span></code> command takes input from a file or from pipe</p>
+<ul>
+<li><code class="codehilite"><span class="err">qliksense apply -f cr-file.yaml</span></code></li>
+<li><code class="codehilite"><span class="err">cat cr-file.yaml | qliksense apply -f -</span></code></li>
+</ul>
+<p>The content of <code class="codehilite"><span class="err">cr-file.yaml</span></code> should be something like the following:</p>
+<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qlik.com/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Qliksense</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qlik-test</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.0.2</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">configs</span><span class="p">:</span>
+    <span class="nt">qliksense</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">acceptEULA</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span>
+  <span class="nt">secrets</span><span class="p">:</span>
+    <span class="nt">qliksense</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongoDbUri</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongodb://qlik-test-mongodb:27017/qliksense?ssl=false</span>
+  <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-desktop</span>
+  <span class="nt">rotateKeys</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span>
+</pre></div>
+
+<p><code class="codehilite"><span class="err">qliksense apply</span></code> does everything <code class="codehilite"><span class="err">qliksense load</span></code> does but will install Qlik Sense into the cluster as well</p>
+<h3 id="qliksense-about">qliksense about<a class="headerlink" href="#qliksense-about" title="Permanent link">&para;</a></h3>
+<p><code class="codehilite"><span class="err">qliksense about</span></code> command will display information about <a href="https://github.com/qlik-oss/qliksense-k8s">qliksense-k8s</a> release.</p>
+<p>For example, running the following command will show information about default profile for <code class="codehilite"><span class="err">1.0.0</span></code> tag</p>
+<div class="codehilite"><pre><span></span><span class="err">qliksense about 1.0.0</span>
+</pre></div>
+
+<p>Run the following command to view options for <code class="codehilite"><span class="err">about</span></code> command:
+<div class="codehilite"><pre><span></span><span class="err">qliksense about --help</span>
+</pre></div></p>
+<p>Using other supported commands user might have built the CR into the location <code class="codehilite"><span class="err">~/.qliksense/myqliksense.yaml</span></code></p>
+<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qlik.com/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">QlikSense</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myqliksense</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker-desktop</span>
+  <span class="nt">manifestsRoot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/Usr/xyz/my-k8-repo/manifests</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myqliksense</span>
+  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">efs</span>
+  <span class="nt">configs</span><span class="p">:</span>
+    <span class="nt">qliksense</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">acceptEULA</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span>
+  <span class="nt">secrets</span><span class="p">:</span>
+    <span class="nt">qliksense</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongoDbUri</span>
+      <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;mongo://mongo:3307&quot;</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">messagingPassword</span>
+      <span class="nt">valueFromKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">messagingPassword</span>
+</pre></div>
+
+<p>In this case, the result of <code class="codehilite"><span class="err">qliksense about</span></code> command would display information from:</p>
+<ul>
+<li><code class="codehilite"><span class="err">/Usr/xyz/my-k8-repo/manifests/docker-desktop</span></code> location, or</li>
+<li>Pull and show information from <code class="codehilite"><span class="err">master</span></code> branch if the directory is invalid or empty</li>
+</ul>
+<h3 id="qliksense-config">qliksense config<a class="headerlink" href="#qliksense-config" title="Permanent link">&para;</a></h3>
+<p><code class="codehilite"><span class="err">qliksense config</span></code> will perform operations on configurations and contexts regarding the <a href="https://github.com/qlik-oss/qliksense-k8s">qliksense-k8</a> release.</p>
+<p>It supports the following flags:</p>
+<ul>
+<li><code class="codehilite"><span class="err">qliksense config apply</span></code> - generate the patches and apply manifests to K8s</li>
+<li><code class="codehilite"><span class="err">qliksense config list-contexts</span></code> - get and list contexts</li>
+<li><code class="codehilite"><span class="err">qliksense config set</span></code> - configure a key-value pair into the current context</li>
+<li><code class="codehilite"><span class="err">qliksense config set-configs</span></code> - set configurations into qliksense context as key-value pairs</li>
+<li><code class="codehilite"><span class="err">qliksense config set-context</span></code> - sets the Kubernetes context where resources are located</li>
+<li><code class="codehilite"><span class="err">qliksense config set-secrets &lt;service_name&gt;.&lt;attribute&gt;=&quot;&lt;value&gt;&quot; --secret=false</span></code> - set secrets configurations into qliksense context as key-value pairs and show encrypted value as part of CR</li>
+<li><code class="codehilite"><span class="err">qliksense config set-secrets &lt;service_name&gt;.&lt;attribute&gt;=&quot;&lt;value&gt;&quot; --secret=true</span></code> - set secrets configurations into qliksense context as key-value pairs and show a key reference to the created Kubernetes secret resource as part of the CR</li>
+<li><code class="codehilite"><span class="err">qliksense config view</span></code> - view the qliksense operator CR</li>
+<li><code class="codehilite"><span class="err">qliksense config delete-context</span></code> - deletes a specific context locally (not in-cluster). Deletes context in spec of <code class="codehilite"><span class="err">config.yaml</span></code> and locally deletes entire folder of specified context (does not delete secrets from cluster)</li>
+</ul>
+<p>The global file which abstracts all contexts is <code class="codehilite"><span class="err">~/.qliksense/config.yaml</span></code>
+<div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">config.qlik.com/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">QliksenseConfig</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">QliksenseConfigMetadata</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">contexts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">qlik-default</span>
+    <span class="nt">crFile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/Users/xyz/.qliksense/contexts/qlik-default/qlik-default.yaml</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">myqliksense</span>
+    <span class="nt">crFile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/Users/xyz/.qliksense/contexts/myqliksense/myqliksense.yaml</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hello</span>
+    <span class="nt">crFile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/Users/xyz/.qliksense/contexts/hello/hello.yaml</span>
+  <span class="nt">currentContext</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hello</span>
+</pre></div></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../getting_started/" title="Getting started" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting started
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../concepts/" title="How CLI works" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                How CLI works
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
